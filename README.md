@@ -20,7 +20,7 @@ Với giao diện thân thiện và dễ sử dụng, hệ thống giúp cả ng
    ![Screenshot 2025-01-12 161315](https://github.com/user-attachments/assets/f4b5678b-958f-4d1a-802c-3ea4fa651f50)
   
 - **Sơ đồ thuật toán** (Behavioural Diagram)
-  # Filter
+  # Fillter
 
    ![Screenshot 2025-01-12 162507](https://github.com/user-attachments/assets/322e2051-90e3-495d-a764-5e1319f0f093)
 
