@@ -12,7 +12,7 @@
             <h1 class="display-4">Welcome to Artistry Gallery</h1>
             <p class="lead text-white-50">We bring life to your walls with our exquisite collection of artwork. Discover
                 creativity like never before.</p>
-            <a href="{{ route('products.index') }}" class="btn btn-primary btn-lg rounded-pill px-5">Explore Now</a>
+            <a href="{{ route('login') }}" class="btn btn-primary btn-lg rounded-pill px-5">Explore Now</a>
         </div>
     </div>
 </div>
