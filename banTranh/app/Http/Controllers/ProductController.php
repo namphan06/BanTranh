@@ -86,7 +86,7 @@ public function filter(Request $request): View
 
 public function learnMore()
     {
-        return view('products.learnMore');
+        return view('products.learnmore');
     }
 
 
