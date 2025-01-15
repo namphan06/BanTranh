@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Auth\AuthController;
   
 Route::get('/', function () {
     return view('welcome');
@@ -31,4 +32,19 @@ Route::get('categories/{categoryId}/showProducts', [CategoryController::class, '
 
 Route::resource('products', ProductController::class);
 Route::get('/user', [UserController::class, 'index']);
+
+
+
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('registration', [AuthController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
+// Route::get('dashboard', [AuthController::class, 'dashboard']); 
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+// Route::get('/admin', function () {
+//     $user = Auth::user(); // Lấy thông tin người dùng đã đăng nhập
+//     return view('adminview', compact('user')); // Truyền thông tin user vào view
+// })->name('admin');
+
+// https://www.itsolutionstuff.com/post/laravel-11-crud-application-example-tutorialexample.html
 
