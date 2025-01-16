@@ -146,15 +146,47 @@
             <h1 class="display-4 text-primary">Shop the Best Products</h1>
             <p class="lead text-muted">Explore the best products available for you at the best prices.</p>
         </div>
-        <div>
-            <a href="{{ route('orders.index') }}" class="btn btn-outline-dark position-relative">
+        <div class="d-flex align-items-center">
+            <!-- Icon giỏ hàng -->
+            <a href="{{ route('ordersemail') }}" class="btn btn-outline-dark position-relative me-3">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge bg-danger">
                     {{ $cartCount ?? 0 }}
                 </span>
             </a>
+
+            <!-- Icon thông tin tài khoản -->
+            <div class="dropdown">
+                <a href="#" class="btn btn-outline-dark" id="userDropdown" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fas fa-user"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="{{ route('userprofile') }}">
+                            <i class="fas fa-user me-2"></i> Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <i class="fas fa-cog me-2"></i> Settings
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center text-danger" href="{{ route('logout') }}">
+                            <i class="fas fa-sign-out-alt me-2"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
         </div>
     </div>
+
 
     <!-- Featured Products (Carousel) -->
     <div id="featuredProductsCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
