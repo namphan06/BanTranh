@@ -57,6 +57,7 @@ Với giao diện thân thiện và dễ sử dụng, hệ thống giúp cả ng
 
 ## Taì liệu tham khảo 
 [link1](https://www.itsolutionstuff.com/post/laravel-11-crud-application-example-tutorialexample.html)
+
 [link2](https://www.itsolutionstuff.com/post/laravel-11-custom-user-login-and-registration-tutorialexample.html#)
 ## Triển khai (Deployment)
 [Deployment Link](https://potential-barnacle-pvj6gx7pgpjhw9g-8000.app.github.dev/)
