@@ -58,7 +58,7 @@
                     <p class="card-text text-muted">{{ Str::limit($product->detail, 60) }}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <span class="badge bg-secondary">${{ number_format($product->price, 2) }}</span>
-                        <a href="{{ route('products.show', $product->id) }}" class="btn btn-dark btn-sm">Details</a>
+                        <a href="{{ route('products.showdetail2', $product->id) }}" class="btn btn-dark btn-sm">Details</a>
                     </div>
                 </div>
             </div>
