@@ -10,6 +10,7 @@ use Illuminate\View\View;
 use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -43,18 +44,31 @@ class ProductController extends Controller
     $product = Product::findOrFail($id);
     return view('products.showdetail2', compact('product'));
 }
-public function buy($id)
+public function buy(Request $request, $id)
 {
     $product = Product::findOrFail($id);
 
+    // Validate user inputs
+    $request->validate([
+        'phone' => 'required|string|max:15',
+        'address' => 'required|string|max:255',
+    ]);
+
+    $user = Auth::user();
+    
+
+    // Create the order with additional fields
     Order::create([
         'name' => $product->name,
         'price' => $product->price,
         'img' => $product->image,
         'order_time' => now(),
+        'phone' => $request->phone,
+        'address' => $request->address,
+        'email' => $user->email,
     ]);
 
-    return redirect()->route('orders.index')->with('success', 'Order placed successfully!');
+    return redirect()->route('ordersemail')->with('success', 'Order placed successfully!');
 }
 
 public function filter(Request $request): View
