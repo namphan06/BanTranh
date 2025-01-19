@@ -143,7 +143,7 @@
     <!-- Header Section -->
     <div class="d-flex justify-content-between align-items-center mb-5">
         <div>
-            <h1 class="display-4 text-primary">Shop the Best Products</h1>
+            <h1 class="display-4 text-primary">Nam Phan Shop</h1>
             <p class="lead text-muted">Explore the best products available for you at the best prices.</p>
         </div>
         <div class="d-flex align-items-center">
@@ -200,8 +200,9 @@
                 @endif
                 <div class="carousel-caption d-none d-md-block">
                     <h3>{{ Str::limit($product->name, 40) }}</h3>
-                    <a href="{{ route('products.showdetail2', $product->id) }}" class="btn btn-primary btn-lg">View
-                        Details</a>
+                    <a href="{{ route('products.showdetail2', ['id' => $product->id, 'category_id' => $product->category_id]) }}"
+                        class="btn btn-dark btn-sm">View Details</a>
+
                 </div>
             </div>
             @endforeach
@@ -277,8 +278,9 @@
                             <h5 class="card-title">{{ Str::limit($product->name, 30) }}</h5>
                             <p class="card-text text-muted">{{ Str::limit($product->detail, 60) }}</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="{{ route('products.showdetail2', $product->id) }}"
+                                <a href="{{ route('products.showdetail2', ['id' => $product->id, 'category_id' => $product->category_id]) }}"
                                     class="btn btn-dark btn-sm">View Details</a>
+
                                 <span class="badge bg-secondary">${{ number_format($product->price, 2) }}</span>
                             </div>
                         </div>
