@@ -4,8 +4,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Product;
 use App\Models\Order;
+use App\Models\Product;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 use Illuminate\Http\RedirectResponse;
@@ -18,23 +18,24 @@ class CategoryController extends Controller
      * Display a listing of the categories.
      */
     public function index(Request $request): View
-    {
-        $search = $request->input('search'); // Lấy giá trị tìm kiếm từ request (có thể là email hoặc name)
-    
-        // Tìm kiếm các đơn hàng dựa trên email hoặc tên
-        $orders = Order::query()
-            ->when($search, function ($query) use ($search) {
-                $query->where('email', 'like', "%$search%") // Tìm kiếm theo email
-                      ->orWhere('name', 'like', "%$search%"); // Tìm kiếm theo tên
-            })
-            ->latest() // Sắp xếp theo thời gian (mới nhất trước)
-            ->paginate(6); // Phân trang với 6 đơn hàng mỗi trang
-    
-        // Lấy danh sách các danh mục
-        $categories = Category::latest()->paginate(6); // Giả sử bạn có Category model
-    
-        return view('categories.index', compact('orders', 'categories')); // Trả về view với danh sách đơn hàng và danh mục
-    }
+{
+    $search = $request->input('search'); // Lấy giá trị tìm kiếm từ request (có thể là email hoặc name)
+
+    // Tìm kiếm các đơn hàng dựa trên email hoặc tên
+    $orders = Order::query()
+        ->when($search, function ($query) use ($search) {
+            $query->where('email', 'like', "%$search%") // Tìm kiếm theo email
+                  ->orWhere('name', 'like', "%$search%"); // Tìm kiếm theo tên
+        })
+        ->latest() // Sắp xếp theo thời gian (mới nhất trước)
+        ->paginate(6); // Phân trang với 6 đơn hàng mỗi trang
+
+    // Lấy danh sách các danh mục
+    $categories = Category::latest()->paginate(6); // Giả sử bạn có Category model
+
+    return view('categories.index', compact('orders', 'categories')); // Trả về view với danh sách đơn hàng và danh mục
+}
+
 
     public function showProducts($categoryId): View
 {
@@ -172,6 +173,11 @@ public function showFilterProducts(Request $request, $categoryId): View
             'detail' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'price' => 'required|numeric|min:0',
+            'size' => 'nullable|string|max:100',  // Kích thước
+            'material' => 'nullable|string|max:100', // Chất liệu
+            'frame' => 'required|boolean', // Khung tranh (true/false)
+            'condition' => 'nullable|string|max:100', // Tình trạng
+            
         ]);
 
         if ($request->hasFile('image')) {
