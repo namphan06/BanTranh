@@ -24,7 +24,7 @@ Route::get('/learn-more', [ProductController::class, 'learnMore'])->name('produc
 Route::middleware([AuthMiddleware::class])->group(function () {
     // Các route người dùng đã đăng nhập có thể truy cập
     Route::get('products/admin', [ProductController::class, 'admin'])->name('products.admin');
-    Route::get('products/showdetail2/{id}', [ProductController::class, 'showdetail2'])->name('products.showdetail2');
+    Route::get('products/showdetail2/{id}/{category_id}', [ProductController::class, 'showdetail2'])->name('products.showdetail2');
     Route::post('products/{id}/buy', [ProductController::class, 'buy'])->name('products.buy');
     
     Route::get('/filter', [ProductController::class, 'filter'])->name('filter');
