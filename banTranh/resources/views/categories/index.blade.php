@@ -22,16 +22,17 @@
     <table class="table table-bordered mt-3">
         <thead>
             <tr>
-                <th>ID</th>
+                <th width="80px">No</th>
                 <th>Name</th>
                 <th>Image</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
+            @php $i = 1; @endphp
             @foreach($categories as $category)
             <tr>
-                <td>{{ $category->id }}</td>
+                <td>{{ $i++ }}</td>
                 <td>{{ $category->name }}</td>
                 <td>
                     <img src="{{ asset($category->image) }}" alt="{{ $category->name }}" width="50">
