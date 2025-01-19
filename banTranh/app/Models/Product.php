@@ -15,5 +15,9 @@ class Product extends Model
         'image',
         'price',
         'category_id',
+        'size',
+        'material',
+        'frame',  // Kiểu bool
+        'condition',
     ];
 }
