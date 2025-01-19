@@ -30,6 +30,11 @@
         </tbody>
     </table>
 
+    <!-- Phân trang -->
+    <div class="d-flex justify-content-center">
+        {{ $orders->links() }}
+    </div>
+
     <!-- Nút Back -->
     <a href="{{ route('products.index') }}" class="btn btn-dark mt-3">Back</a>
 </div>
