@@ -27,8 +27,18 @@ class ProductController extends Controller
     // Lấy danh sách sản phẩm từ cơ sở dữ liệu, phân trang 6 sản phẩm mỗi trang
     $products = Product::latest()->paginate(6);
 
+    $user = Auth::user();
+
+    $orders = Order::where('email', $user->email)->latest()->paginate(6);
+
+    $order_count = Order::where('email', $user->email);
+    
+        // Tính tổng số đơn hàng của người dùng
+        $cartCount = $order_count->count();
+    
+
     // Truyền cả products và categories vào View
-    return view('products.index', compact('products', 'categories'));
+    return view('products.index', compact('products', 'categories', 'cartCount'));
 }
      
 
@@ -39,11 +49,22 @@ class ProductController extends Controller
         return view('products.admin', compact('products'))
                     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-    public function showdetail2($id)
-{
-    $product = Product::findOrFail($id);
-    return view('products.showdetail2', compact('product'));
-}
+    public function showdetail2($id, $category_id)
+    {
+        // Lấy thông tin sản phẩm với ID cụ thể
+        $product = Product::findOrFail($id);
+        
+        // Lấy danh sách sản phẩm có cùng category_id và loại bỏ sản phẩm hiện tại
+        $products_category = Product::where('category_id', $category_id)
+                                     ->where('id', '!=', $id)  // Loại bỏ sản phẩm có id = $id
+                                     ->get();
+    
+        // Trả về view với sản phẩm chi tiết và danh sách các sản phẩm trong cùng category
+        return view('products.showdetail2', compact('product', 'products_category'));
+    }
+    
+    
+
 public function buy(Request $request, $id)
 {
     $product = Product::findOrFail($id);
@@ -68,8 +89,9 @@ public function buy(Request $request, $id)
         'email' => $user->email,
     ]);
 
-    return redirect()->route('ordersemail')->with('success', 'Order placed successfully!');
+    return view('orders.confirm', compact('product', 'request', 'user'));
 }
+
 
 public function filter(Request $request): View
 {
@@ -100,7 +122,7 @@ public function filter(Request $request): View
 
 public function learnMore()
     {
-        return view('products.learnmore');
+        return view('products.learnMore');
     }
 
 
