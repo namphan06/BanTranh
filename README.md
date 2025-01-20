@@ -15,7 +15,7 @@ Phía admin, hệ thống cung cấp các công cụ quản lý sản phẩm tra
 Với giao diện thân thiện và dễ sử dụng, hệ thống giúp cả người mua và admin có thể thao tác nhanh chóng, tạo ra một môi trường mua sắm và quản lý hiệu quả.
 
 
-API documentaion is[here](https://github.com/namphan06/banTranh/wiki/API-Documentation)
+API documentaion is [here](https://github.com/namphan06/banTranh/wiki/API-Documentation)
 ## Chức năng chính
 - Quản lý tài khoản
 - Quản lý sản phẩm
