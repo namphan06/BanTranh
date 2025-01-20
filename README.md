@@ -70,7 +70,7 @@ API documentaion is [here](https://github.com/namphan06/banTranh/wiki/API-Docume
 ### Trang chủ (admin)
 ![Screenshot_20-1-2025_141618_127 0 0 1](https://github.com/user-attachments/assets/e0804b25-9509-4b0a-a2ee-4b883978ebb7)
 ### Thông tin sản phẩm (admin)
-![Screenshot_20-1-2025_141618_127 0 0 1](https://github.com/user-attachments/assets/18e37cc6-d704-41ed-a490-913be1085ad0)
+![Screenshot_20-1-2025_14181_127 0 0 1](https://github.com/user-attachments/assets/ace94b3f-e816-4c7b-9075-ad7dcf295645)
 ### Thêm sửa sản phẩm (admin)
 ![Screenshot_20-1-2025_141923_127 0 0 1](https://github.com/user-attachments/assets/dc6512e5-fefe-44e3-9743-5178adb41fb9)
 ### Thêm sửa thể loại (admin)
