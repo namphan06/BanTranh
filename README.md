@@ -44,34 +44,34 @@ Với giao diện thân thiện và dễ sử dụng, hệ thống giúp cả ng
    php artisan serve
 
 ## Giao diện website
-# Giới thiệu
+### Giới thiệu
 ![Screenshot_20-1-2025_135134_127 0 0 1](https://github.com/user-attachments/assets/09242354-1dac-43d8-bb95-a3b22b65fa61)
-# Tìm hiểu thêm
+### Tìm hiểu thêm
 ![Screenshot_20-1-2025_135651_127 0 0 1](https://github.com/user-attachments/assets/8a5821aa-5fca-4d4e-9b32-2148f1bb8c92)
-# Đăng kí, đăng nhập
+### Đăng kí, đăng nhập
 ![Screenshot 2025-01-20 135757](https://github.com/user-attachments/assets/d4e35826-bb31-4bdd-92fc-1e80dac543fb)
 ![Screenshot 2025-01-20 135923](https://github.com/user-attachments/assets/44291db9-708c-4236-be66-fc46a66b56a1)
-# Trang chủ
+### Trang chủ
 ![Screenshot_20-1-2025_14026_127 0 0 1](https://github.com/user-attachments/assets/ef03ceb3-a3f6-49af-8f2a-5b9b86deb54b)
-# Thông tin sản phẩm
+### Thông tin sản phẩm
 ![Screenshot_20-1-2025_14226_127 0 0 1](https://github.com/user-attachments/assets/8289eb26-4f31-4792-b205-17a51e7bed24)
-# điền thông tin nhận hàng
+### Điền thông tin nhận hàng
 ![Screenshot 2025-01-20 140511](https://github.com/user-attachments/assets/feb94132-efad-470b-80f8-b789db7af02a)
-# Xác nhận lại thông tin đặt hàng
+### Xác nhận lại thông tin đặt hàng
 ![Screenshot_20-1-2025_14718_127 0 0 1](https://github.com/user-attachments/assets/b9e5977b-59c3-41f0-bf8d-386319f55bc2)
-# Giỏ hàng
+### Giỏ hàng
 ![Screenshot 2025-01-20 141318](https://github.com/user-attachments/assets/e445d443-8db3-48d6-8bd3-1c4801b996b6)
-# Thông tin tài khoản người dùng
+### Thông tin tài khoản người dùng
 ![Screenshot 2025-01-20 141348](https://github.com/user-attachments/assets/b90b9bf7-4ed8-43bb-9663-ec5f227ee2b7)
-# Lọc sản phẩm (thể loại,min,max)
+### Lọc sản phẩm (thể loại,min,max)
 ![Screenshot 2025-01-20 141505](https://github.com/user-attachments/assets/c82dd27e-be17-40b2-bc3b-005cea5a27cd)
-# Trang chủ (admin)
+### Trang chủ (admin)
 ![Screenshot_20-1-2025_141618_127 0 0 1](https://github.com/user-attachments/assets/e0804b25-9509-4b0a-a2ee-4b883978ebb7)
-# Thông tin sản phẩm (admin)
+### Thông tin sản phẩm (admin)
 ![Screenshot_20-1-2025_141618_127 0 0 1](https://github.com/user-attachments/assets/18e37cc6-d704-41ed-a490-913be1085ad0)
-# Thêm sửa sản phẩm (admin)
+### Thêm sửa sản phẩm (admin)
 ![Screenshot_20-1-2025_141923_127 0 0 1](https://github.com/user-attachments/assets/dc6512e5-fefe-44e3-9743-5178adb41fb9)
-# Thêm sửa thể loại (admin)
+### Thêm sửa thể loại (admin)
 ![Screenshot 2025-01-20 142108](https://github.com/user-attachments/assets/2a74665a-cdc8-4742-9af3-5f97413324d5)
 
 ## Tài liệu tham khảo 
