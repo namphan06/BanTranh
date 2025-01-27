@@ -13,13 +13,19 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('product_id'); // Thêm cột khóa ngoại
             $table->string('name');
             $table->decimal('price', 8, 2);
             $table->string('img');
             $table->timestamp('order_time')->nullable();
             $table->timestamps();
+            $table->boolean('check')->default(false);
+    
+            // Thiết lập khóa ngoại
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
+    
     
     /**
      * Reverse the migrations.
