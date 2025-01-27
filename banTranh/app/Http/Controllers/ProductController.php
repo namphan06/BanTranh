@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Rate;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -11,6 +12,7 @@ use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
+
 
 class ProductController extends Controller
 {
@@ -58,9 +60,19 @@ class ProductController extends Controller
         $products_category = Product::where('category_id', $category_id)
                                      ->where('id', '!=', $id)  // Loại bỏ sản phẩm có id = $id
                                      ->get();
+
+        // Lấy tất cả đánh giá để đếm
+    $allRates = Rate::where('product_id', $id)->get();
     
+    // Lọc đánh giá theo số sao nếu có yêu cầu
+    $rates = request('stars') 
+        ? $allRates->where('stars', request('stars')) 
+        : $allRates;
+
+    
+    // $rates = $ratesQuery->latest()->get();
         // Trả về view với sản phẩm chi tiết và danh sách các sản phẩm trong cùng category
-        return view('products.showdetail2', compact('product', 'products_category'));
+        return view('products.showdetail2', compact('product', 'products_category', 'rates','allRates'));
     }
     
     
@@ -80,6 +92,7 @@ public function buy(Request $request, $id)
 
     // Create the order with additional fields
     Order::create([
+        'product_id' => $id,
         'name' => $product->name,
         'price' => $product->price,
         'img' => $product->image,
@@ -207,5 +220,24 @@ public function edit(Product $product): View
 
         return redirect()->route('products.admin')
                          ->with('success', 'Product deleted successfully.');
+    }
+
+    public function showById($id)
+    {
+
+        $product = Product::findOrFail($id);
+        
+        $rates = Rate::where('product_id', $id)->latest()->get();
+        // Lấy thông tin sản phẩm
+        $product = Product::findOrFail($id);
+        
+        
+        // Tính điểm trung bình
+        $averageRating = $rates->avg('stars');
+        
+        // Lấy sản phẩm liên quan (cùng category)
+        
+
+        return view('products.showdetailadminrate', compact('product', 'rates', 'averageRating'));
     }
 }
