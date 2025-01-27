@@ -103,6 +103,14 @@
                 <td>{{ $order->email }}</td>
                 <td>${{ $order->price }}</td>
                 <td>{{ $order->order_time }}</td>
+                <td>
+                    <!-- Nút xem bình luận -->
+                    <a href="{{ route('rate.showByEmail', [$order->email, $order->product_id]) }}"
+                        class="btn btn-secondary btn-sm">
+                        <i class="fa fa-comments"></i> View Ratings
+                    </a>
+
+                </td>
             </tr>
             @endforeach
         </tbody>
