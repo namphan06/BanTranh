@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+
   
 class AuthController extends Controller
 {
@@ -87,6 +88,8 @@ class AuthController extends Controller
            
         $data = $request->all();
         $user = $this->create($data);
+
+       
             
         Auth::login($user); 
 
@@ -132,5 +135,32 @@ class AuthController extends Controller
         Auth::logout();
   
         return Redirect('login');
+    }
+
+    public function showChangePasswordForm(): View
+    {
+        return view('auth.change-password');
+    }
+
+    public function changePassword(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:6|confirmed',
+        ]);
+
+        $user = User::find(Auth::id());
+
+        // Kiểm tra mật khẩu hiện tại
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'Mật khẩu hiện tại không đúng']);
+        }
+
+        // Cập nhật mật khẩu mới
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return redirect()->route('products.index')
+                        ->withSuccess('Mật khẩu đã được cập nhật thành công!');
     }
 }
