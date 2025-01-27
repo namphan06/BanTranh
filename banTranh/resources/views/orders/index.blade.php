@@ -13,6 +13,7 @@
                 <th>Phone</th>
                 <th>Address</th>
                 <th>Email</th>
+                <th>Rate</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +26,57 @@
                 <td>{{ $order->phone }}</td>
                 <td>{{ $order->address }}</td>
                 <td>{{ $order->email }}</td>
+                <td>
+                    @if($order->check)
+                    <!-- Hiển thị tích xanh nếu check = true -->
+                    <i class="fa fa-check-circle text-success"></i> Rated
+                    @else
+                    <!-- Nút mở modal đánh giá nếu check = false -->
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#rateModal{{ $order->id }}">
+                        ⭐ Rate Now
+                    </button>
+                    @endif
+                </td>
             </tr>
+
+            <!-- Modal đánh giá -->
+            <div class="modal fade" id="rateModal{{ $order->id }}" tabindex="-1" aria-labelledby="rateModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="rateModalLabel">Rate Order: {{ $order->name }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form
+                                action="{{ route('rate.store', ['product_id' => $order->product_id, 'email' => $order->email]) }}"
+                                method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="stars" class="form-label">Stars</label>
+                                    <select name="stars" class="form-select">
+                                        <option value="1">⭐</option>
+                                        <option value="2">⭐⭐</option>
+                                        <option value="3">⭐⭐⭐</option>
+                                        <option value="4">⭐⭐⭐⭐</option>
+                                        <option value="5">⭐⭐⭐⭐⭐</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">Upload Image</label>
+                                    <input type="file" name="image" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="comment" class="form-label">Comment</label>
+                                    <textarea name="comment" class="form-control" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Rating</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             @endforeach
         </tbody>
     </table>
