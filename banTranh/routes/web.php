@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\AuthMiddleware;
+use App\Http\Controllers\RateController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,6 +32,16 @@ Route::middleware([AuthMiddleware::class])->group(function () {
     Route::resource('products', ProductController::class);
     
     Route::get('orders/user', [OrderController::class, 'getOrderEmail'])->name('ordersemail');
+
+    Route::post('/rates/{product_id}/{email}', [RateController::class, 'store'])->name('rate.store');
+    Route::get('/rates/{product_id}', [RateController::class, 'show'])->name('rate.show');
+    Route::get('/rates/email/{email}/{product_id}', [RateController::class, 'showByEmail'])->name('rate.showByEmail');
+    // routes/web.php
+
+    Route::get('/productrate/{id}', [ProductController::class, 'showById'])->name('products.showrate');
+    
+    Route::get('/change-password', [AuthController::class, 'showChangePasswordForm'])->name('password.form');
+Route::post('/change-password', [AuthController::class, 'changePassword'])->name('password.change');
     
     // Các route chỉ dành cho admin
     Route::middleware([AuthMiddleware::class])->group(function () {
@@ -39,6 +50,7 @@ Route::middleware([AuthMiddleware::class])->group(function () {
         Route::resource('categories', CategoryController::class);
         Route::get('categories/{categoryId}/showProducts', [CategoryController::class, 'showProducts'])->name('categories.showProducts');
         Route::post('/categories/{categoryId}/products', [CategoryController::class, 'storeProduct'])->name('categories.storeProduct');
+        
     });
 
     Route::get('/user', [UserController::class, 'index']);
