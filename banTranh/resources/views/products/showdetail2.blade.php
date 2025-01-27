@@ -89,7 +89,47 @@
         </div>
     </div>
 
+    <div class="mt-5">
+        <h3>Customer Reviews</h3>
 
+        <!-- Bộ lọc đánh giá -->
+        <div class="mb-3">
+            <div class="btn-group" role="group">
+                <a href="{{ request()->url() }}"
+                    class="btn btn-outline-primary {{ !request('stars') ? 'active' : '' }}">
+                    Tất cả ({{ $rates->count() }})
+                </a>
+                @for($i = 5; $i >= 1; $i--)
+                <a href="{{ request()->url() }}?stars={{ $i }}"
+                    class="btn btn-outline-primary {{ request('stars') == $i ? 'active' : '' }}">
+                    {{ $i }} sao ({{ $allRates->where('stars', $i)->count() }})
+                </a>
+                @endfor
+            </div>
+        </div>
+
+        <!-- Hiển thị đánh giá -->
+        @foreach ($rates as $rating)
+        <div class="review-card mb-3 p-3 border rounded">
+            <p><strong>Email:</strong> {{ $rating->email }}</p>
+            <p><strong>Rating:</strong>
+                @for ($i = 1; $i <= $rating->stars; $i++)
+                    <i class="fas fa-star text-warning"></i>
+                    @endfor
+                    @for ($i = $rating->stars + 1; $i <= 5; $i++) <i class="fas fa-star text-muted"></i>
+                        @endfor
+            </p>
+            <p><strong>Comment:</strong> {{ $rating->comment }}</p>
+
+            @if($rating->image)
+            <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="{{ asset($rating->image) }}">
+                <img src="{{ asset($rating->image) }}" class="img-fluid review-img" alt="Review Image"
+                    style="width: 100px; height: 50px; object-fit: cover;">
+            </a>
+            @endif
+        </div>
+        @endforeach
+    </div>
 </div>
 
 <!-- Modal for Product Details -->
@@ -141,6 +181,32 @@
         </div>
     </div>
 </div>
+
+<!-- Modal to display image -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Review Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="" id="modalImage" class="img-fluid" alt="Review Image">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Sử dụng JavaScript để lấy ảnh từ data-bs-image
+var reviewImages = document.querySelectorAll('[data-bs-image]');
+reviewImages.forEach(function(element) {
+    element.addEventListener('click', function() {
+        var imageUrl = element.getAttribute('data-bs-image');
+        document.getElementById('modalImage').src = imageUrl;
+    });
+});
+</script>
 
 @endsection
 
