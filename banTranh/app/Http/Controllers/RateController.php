@@ -10,7 +10,7 @@ use App\Models\Order;
 class RateController extends Controller
 {
     // Lưu đánh giá mới
-    public function store(Request $request, $product_id, $email)
+    public function store(Request $request, $product_id, $email, $order_id)
 {
     $request->validate([
         'stars' => 'required|integer|min:1|max:5',
@@ -30,6 +30,7 @@ class RateController extends Controller
 
     Rate::create([
         'product_id' => $product_id,
+        'order_id' => $order_id,
         'email' => $email,
         'stars' => $request->stars,
         'image' => isset($validated['image']) ? $validated['image'] : null, // Sử dụng giá trị image đã xác thực
@@ -37,14 +38,13 @@ class RateController extends Controller
         'rated_at' => now(),
     ]);
 
-    $order = Order::where('product_id', $product_id)->where('email', $email)->first();
+    $order = Order::where('product_id', $product_id)->where('email', $email)->where('id', $order_id)->first();
     if ($order) {
-        $order->update(['check' => true]);
+        $order->check = true; // Đánh dấu đã được đánh giá
+        $order->save();
     }
-    
 
-    return redirect()->intended(route('ordersemail'))->with('success', 'Đánh giá đã được gửi thành công!');
-
+    return redirect()->route('products.index')->with('success', 'Đánh giá đã được gửi thành công!');
 
 }
 
@@ -57,12 +57,18 @@ class RateController extends Controller
 
         return view('rates.show', compact('product', 'rates'));
     }
-    public function showByEmail($email,$product_id)
-    {
-        // Lấy tất cả đánh giá từ email được cung cấp
-        $rates = Rate::where('email', $email)->orderBy('rated_at', 'desc')->get();
-    
-        return view('rate.showrate', compact('email', 'rates', 'product_id'));
-    }
-    
+    public function showByEmail($email, $product_id)
+{
+    // Lấy tất cả đánh giá từ email được cung cấp
+    $rates = Rate::where('email', $email)->orderBy('rated_at', 'desc')->get();
+
+    // Lấy danh sách product_id từ rates
+    $productIds = $rates->pluck('product_id')->unique();
+
+    // Lấy danh sách sản phẩm từ product_id
+    $products = Product::whereIn('id', $productIds)->pluck('name', 'id');
+
+    return view('rate.showrate', compact('email', 'rates', 'product_id', 'products'));
+}
+
 }
