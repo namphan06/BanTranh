@@ -8,19 +8,24 @@
 ## Mô tả 
 Hệ thống quản lý bán tranh của chúng tôi được thiết kế với mục tiêu mang đến trải nghiệm mua sắm thuận tiện cho người dùng và hỗ trợ quản lý hiệu quả cho admin. Phía người mua, hệ thống cung cấp một giỏ hàng chứa các sản phẩm đã mua, giúp người dùng dễ dàng theo dõi lịch sử các đơn hàng đã mua. Người dùng có thể lọc các sản phẩm tranh theo thể loại, mức giá và các tiêu chí khác để tìm kiếm và lựa chọn tranh phù hợp với sở thích cá nhân.
 
-Bên cạnh đó, hệ thống cho phép người mua duyệt qua các bức tranh thuộc nhiều thể loại khác nhau, từ phong cảnh, chân dung đến trừu tượng và nghệ thuật hiện đại. Các sản phẩm đều được cung cấp thông tin chi tiết, bao gồm tên tranh, giá bán,mô tả giúp người dùng dễ dàng đưa ra quyết định mua hàng.
+Ngoài ra, hệ thống cho phép người mua đánh giá các sản phẩm đã đặt, giúp những người mua sau có thể tham khảo ý kiến từ cộng đồng trước khi quyết định mua hàng. Người dùng có thể để lại nhận xét, xếp hạng sao cho từng bức tranh đã mua, góp phần tạo nên hệ thống đánh giá minh bạch và khách quan.
+
+Bên cạnh đó, hệ thống cho phép người mua duyệt qua các bức tranh thuộc nhiều thể loại khác nhau, từ phong cảnh, chân dung đến trừu tượng và nghệ thuật hiện đại. Các sản phẩm đều được cung cấp thông tin chi tiết, bao gồm tên tranh, giá bán, mô tả giúp người dùng dễ dàng đưa ra quyết định mua hàng.
 
 Phía admin, hệ thống cung cấp các công cụ quản lý sản phẩm tranh, cho phép thêm mới, chỉnh sửa hoặc xóa các sản phẩm trong danh mục tranh. Admin có thể quản lý thông tin chi tiết của từng bức tranh, bao gồm thể loại, giá bán, và các thuộc tính khác để đảm bảo thông tin sản phẩm luôn chính xác và cập nhật.
 
 Với giao diện thân thiện và dễ sử dụng, hệ thống giúp cả người mua và admin có thể thao tác nhanh chóng, tạo ra một môi trường mua sắm và quản lý hiệu quả.
-
-
 API documentaion is [here](https://github.com/namphan06/banTranh/wiki/API-Documentation)
 ## Chức năng chính
-- Quản lý tài khoản
+### Admin
 - Quản lý sản phẩm
-- Quản lý đơn hàng được đặt
-
+- Quản lý đơn hàng
+- Quản lý đánh giá sản phẩm
+### User
+- Mua sản phẩm 
+- Đánh giá sản phẩm đã đặt
+- Lọc sản phẩm theo giá hoặc thể loại
+- Quản lý tài khoản
 
 ## Cài đặt (Installation)
 1. Cài đặt dự án bằng lệnh:
@@ -67,6 +72,11 @@ API documentaion is [here](https://github.com/namphan06/banTranh/wiki/API-Docume
 ![Screenshot 2025-01-20 141348](https://github.com/user-attachments/assets/b90b9bf7-4ed8-43bb-9663-ec5f227ee2b7)
 ### Lọc sản phẩm (thể loại,min,max)
 ![Screenshot 2025-01-20 141505](https://github.com/user-attachments/assets/c82dd27e-be17-40b2-bc3b-005cea5a27cd)
+### Tạo đánh giá sản phẩm 
+![Screenshot_16-2-2025_215647_potential-barnacle-pvj6gx7pgpjhw9g-8000 app github dev](https://github.com/user-attachments/assets/9a789876-99b9-447c-92e2-35383ef2249e)
+### Lấy đánh giá theo sản phẩm
+![Screenshot_16-2-2025_215826_potential-barnacle-pvj6gx7pgpjhw9g-8000 app github dev](https://github.com/user-attachments/assets/a6c07f20-2dd3-4d52-858e-0d53ecde006a)
+
 ### Trang chủ (admin)
 ![Screenshot_20-1-2025_141618_127 0 0 1](https://github.com/user-attachments/assets/e0804b25-9509-4b0a-a2ee-4b883978ebb7)
 ### Thông tin sản phẩm (admin)
@@ -75,6 +85,9 @@ API documentaion is [here](https://github.com/namphan06/banTranh/wiki/API-Docume
 ![Screenshot_20-1-2025_141923_127 0 0 1](https://github.com/user-attachments/assets/dc6512e5-fefe-44e3-9743-5178adb41fb9)
 ### Thêm sửa thể loại (admin)
 ![Screenshot 2025-01-20 142108](https://github.com/user-attachments/assets/2a74665a-cdc8-4742-9af3-5f97413324d5)
+### Lấy đánh giá theo email (admin)
+![Screenshot_16-2-2025_22045_potential-barnacle-pvj6gx7pgpjhw9g-8000 app github dev](https://github.com/user-attachments/assets/1d4648ea-8482-41dd-9de1-831619e92561)
+
 
 ## Tài liệu tham khảo 
 [link1](https://www.itsolutionstuff.com/post/laravel-11-crud-application-example-tutorialexample.html)
