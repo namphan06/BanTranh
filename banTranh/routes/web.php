@@ -35,7 +35,7 @@ Route::middleware([AuthMiddleware::class])->group(function () {
 
     Route::post('/rates/{product_id}/{email}/{order_id}', [RateController::class, 'store'])->name('rate.store');
     Route::get('/rates/{product_id}', [RateController::class, 'show'])->name('rate.show');
-    Route::get('/rates/email/{email}/{product_id}', [RateController::class, 'showByEmail'])->name('rate.showByEmail');
+    
     // routes/web.php
 
     Route::get('/productrate/{id}', [ProductController::class, 'showById'])->name('products.showrate');
@@ -50,6 +50,7 @@ Route::post('/change-password', [AuthController::class, 'changePassword'])->name
         Route::resource('categories', CategoryController::class);
         Route::get('categories/{categoryId}/showProducts', [CategoryController::class, 'showProducts'])->name('categories.showProducts');
         Route::post('/categories/{categoryId}/products', [CategoryController::class, 'storeProduct'])->name('categories.storeProduct');
+        Route::get('/rates/email/{email}/{product_id}', [RateController::class, 'showByEmail'])->name('rate.showByEmail');
         
     });
 
