@@ -13,6 +13,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th>Product</th>
                     <th>Stars</th>
                     <th>Comment</th>
                     <th>Image</th>
@@ -22,6 +23,7 @@
             <tbody>
                 @foreach($rates as $rating)
                 <tr>
+                    <td>{{ $products[$rating->product_id] ?? 'Không xác định' }}</td>
                     <td>{{ str_repeat('⭐', $rating->stars) }}</td>
                     <td>{{ $rating->comment }}</td>
                     <td>
