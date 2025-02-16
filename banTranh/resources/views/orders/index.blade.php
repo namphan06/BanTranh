@@ -50,7 +50,7 @@
                         </div>
                         <div class="modal-body">
                             <form
-                                action="{{ route('rate.store', ['product_id' => $order->product_id, 'email' => $order->email]) }}"
+                                action="{{ route('rate.store', ['product_id' => $order->product_id, 'email' => $order->email, 'order_id' => $order->id]) }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
