@@ -32,7 +32,8 @@ class AuthMiddleware
             'categories.index', // Thêm route index của categories
             'categories.update', // Thêm route update của categories
             'products.create',
-            'products.edit'
+            'products.edit',
+            'rate.showByEmail'
         ];
 
         // Nếu người dùng không phải admin và cố gắng truy cập vào những route yêu cầu admin
