@@ -15,6 +15,7 @@ Bên cạnh đó, hệ thống cho phép người mua duyệt qua các bức tra
 Phía admin, hệ thống cung cấp các công cụ quản lý sản phẩm tranh, cho phép thêm mới, chỉnh sửa hoặc xóa các sản phẩm trong danh mục tranh. Admin có thể quản lý thông tin chi tiết của từng bức tranh, bao gồm thể loại, giá bán, và các thuộc tính khác để đảm bảo thông tin sản phẩm luôn chính xác và cập nhật.
 
 Với giao diện thân thiện và dễ sử dụng, hệ thống giúp cả người mua và admin có thể thao tác nhanh chóng, tạo ra một môi trường mua sắm và quản lý hiệu quả.
+
 API documentaion is [here](https://github.com/namphan06/banTranh/wiki/API-Documentation)
 ## Chức năng chính
 ### Admin
