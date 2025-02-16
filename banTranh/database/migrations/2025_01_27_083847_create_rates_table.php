@@ -9,6 +9,7 @@ return new class extends Migration {
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
+            $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
             $table->string('email');
             $table->integer('stars')->checkBetween([1, 5]); // 1-5 sao
             $table->string('image')->nullable(); // Đường dẫn ảnh đánh giá
