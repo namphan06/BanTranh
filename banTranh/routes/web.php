@@ -33,7 +33,7 @@ Route::middleware([AuthMiddleware::class])->group(function () {
     
     Route::get('orders/user', [OrderController::class, 'getOrderEmail'])->name('ordersemail');
 
-    Route::post('/rates/{product_id}/{email}', [RateController::class, 'store'])->name('rate.store');
+    Route::post('/rates/{product_id}/{email}/{order_id}', [RateController::class, 'store'])->name('rate.store');
     Route::get('/rates/{product_id}', [RateController::class, 'show'])->name('rate.show');
     Route::get('/rates/email/{email}/{product_id}', [RateController::class, 'showByEmail'])->name('rate.showByEmail');
     // routes/web.php
