@@ -98,3 +98,4 @@ Detailed project documentation is [here](https://www.overleaf.com/read/nxktmctpm
 [link2](https://www.itsolutionstuff.com/post/laravel-11-custom-user-login-and-registration-tutorialexample.html#)
 ## Triển khai (Deployment)
 [Deployment Link](https://potential-barnacle-pvj6gx7pgpjhw9g-8000.app.github.dev/)
+[Deployment link(2)](https://symmetrical-winner-56g94wvxxgq2vp95-8001.app.github.dev/)
