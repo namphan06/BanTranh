@@ -19,6 +19,8 @@ Với giao diện thân thiện và dễ sử dụng, hệ thống giúp cả ng
 API documentaion is [here](https://github.com/namphan06/banTranh/wiki/API-Documentation)
 
 Detailed project documentation is [here](https://www.overleaf.com/read/nxktmctpmxvt#ac24a0)
+
+Github: https://github.com/namphan06/banTranh
 ## Chức năng chính
 ### Admin
 - Quản lý sản phẩm
