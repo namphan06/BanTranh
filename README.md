@@ -100,3 +100,13 @@ Detailed project documentation is [here](https://www.overleaf.com/read/nxktmctpm
 [Deployment Link](https://potential-barnacle-pvj6gx7pgpjhw9g-8000.app.github.dev/)
 
 [Deployment link(2)](https://symmetrical-winner-56g94wvxxgq2vp95-8001.app.github.dev/)
+
+## Demo Project
+
+<video width="600" controls>
+  <source src="https://github.com/namphan06/banTranh/releases/download/V1.0.0/2025-02-26.21-53-30.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+
