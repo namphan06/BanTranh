@@ -103,10 +103,7 @@ Detailed project documentation is [here](https://www.overleaf.com/read/nxktmctpm
 
 ## Demo Project
 
-<video width="600" controls>
-  <source src="https://github.com/namphan06/banTranh/releases/download/V1.0.0/2025-02-26.21-53-30.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[Xem video demo](https://github.com/namphan06/banTranh/releases/download/V1.0.0/2025-02-26.21-53-30.mp4)
 
 
 
