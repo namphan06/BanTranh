@@ -55,6 +55,10 @@ Github: https://github.com/namphan06/banTranh
     ```bash
    php artisan serve
 
+## Sơ đồ chức năng
+![Screenshot 2025-02-27 215533](https://github.com/user-attachments/assets/cafafb10-4ef6-49dd-a550-fd4a59fd1842)
+
+
 ## Giao diện website
 ### Giới thiệu
 ![Screenshot_20-1-2025_135134_127 0 0 1](https://github.com/user-attachments/assets/09242354-1dac-43d8-bb95-a3b22b65fa61)
